@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 4000;
 
 // Middleware
 app.use(cors({ 
-  origin: "http://localhost:3000", // Allow Next.js frontend
+  origin: "https://prepforge-psi.vercel.app", // Allow Next.js frontend
   credentials: true 
 }));
 app.use(express.json());
