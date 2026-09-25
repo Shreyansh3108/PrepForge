@@ -43,8 +43,8 @@ export default function KitPage() {
   useEffect(() => {
     async function fetchKit() {
       try {
-        const res = await fetch("https://prepforge-hyt9.onrender.com/api/kits", {
-          credentials: "include" 
+        const res = await fetch(`https://prepforge-hyt9.onrender.com/api/kits/${id}`, {
+          credentials: "include"
         });
         
         if (res.status === 401) {
