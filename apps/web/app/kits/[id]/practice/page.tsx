@@ -26,7 +26,7 @@ export default function PracticeMode() {
   useEffect(() => {
     async function fetchKit() {
       try {
-        const res = await fetch(`http://localhost:4000/api/kits/${id}`, {
+        const res = await fetch(`https://prepforge-hyt9.onrender.com/api/kits/${id}`, {
           credentials: "include", // REQUIRED: Passes session cookie
           cache: "no-store"       // REQUIRED: Busts Next.js aggressive caching
         });

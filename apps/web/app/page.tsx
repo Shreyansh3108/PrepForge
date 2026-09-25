@@ -23,7 +23,7 @@ export default function Home() {
     if (status === "generating" && kitId) {
       interval = setInterval(async () => {
         try {
-          const res = await fetch(`http://localhost:4000/api/kits/${kitId}`, {
+          const res = await fetch(`https://prepforge-hyt9.onrender.com/api/kits/${kitId}`, {
             credentials: "include" // REQUIRED: Allows the polling request to pass the session auth
           });
           const data = await res.json();
@@ -56,7 +56,7 @@ export default function Home() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:4000/api/kits", {
+      const res = await fetch("https://prepforge-hyt9.onrender.com/api/kits", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // REQUIRED: Passes session cookie to create the kit
@@ -86,7 +86,7 @@ export default function Home() {
       <div className="w-full flex justify-end mb-4">
         <button 
           onClick={async () => {
-            await fetch("http://localhost:4000/api/auth/logout", { method: "POST", credentials: "include" });
+            await fetch("https://prepforge-hyt9.onrender.com/api/auth/logout", { method: "POST", credentials: "include" });
             router.push("/login");
           }}
           className="text-sm font-bold text-slate-500 hover:text-rose-600 transition-colors flex items-center gap-2"

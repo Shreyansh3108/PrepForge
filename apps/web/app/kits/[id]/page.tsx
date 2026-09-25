@@ -185,7 +185,7 @@ export default function KitPage() {
         </Link>
         <button 
           onClick={async () => {
-            await fetch("http://localhost:4000/api/auth/logout", { method: "POST", credentials: "include" });
+            await fetch("https://prepforge-hyt9.onrender.com/api/auth/logout", { method: "POST", credentials: "include" });
             router.push("/login");
           }}
           className="text-sm font-bold text-slate-500 hover:text-rose-600 transition-colors flex items-center gap-2"
