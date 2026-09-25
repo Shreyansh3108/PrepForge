@@ -21,13 +21,18 @@ app.use(cors({
 app.use(express.json());
 
 // Session Configuration (Core Requirement 1)
+// Tell Express to trust Render's load balancer (CRITICAL)
+app.set("trust proxy", 1); 
+
+// Session Configuration (Core Requirement 1)
 app.use(session({
   secret: process.env.SESSION_SECRET || 'super-secret-prepforge-key',
   resave: false,
   saveUninitialized: false,
-  cookie: { 
-    secure: process.env.NODE_ENV === 'production', 
-    maxAge: 1000 * 60 * 60 * 24 // 1 day 
+  cookie: {
+    secure: true,         // Forces HTTPS cookies
+    sameSite: "none",     // Allows cross-domain cookies between Vercel and Render
+    maxAge: 1000 * 60 * 60 * 24 // 1 day
   }
 }));
 
